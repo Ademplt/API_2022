@@ -26,6 +26,6 @@ public class JsonUtil {
     }
 
 
-        //2. Method: Java Objesini Json Dataya  çevirir.(De-Serialization)
+        //2. Method: Java Objesini Json Dataya  çevirir.(Serialization)
 
 }
