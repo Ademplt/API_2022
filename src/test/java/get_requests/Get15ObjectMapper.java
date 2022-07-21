@@ -12,25 +12,26 @@ import static org.junit.Assert.assertEquals;
 
 public class Get15ObjectMapper extends HerOkuAppBaseUrl {
 
-    /*
-        Given
-               https://restful-booker.herokuapp.com/booking/22
-        When
-            I send GET Request to the URL
-      Then
-            Status code is 200
-           {
-                "firstname": "Oliver",
-                "lastname": "Smith",
-                "totalprice": 100,
-                "depositpaid": true,
-                "bookingdates": {
-                    "checkin": "2022-07-18",
-                    "checkout": "2022-07-19"
-                },
-                "additionalneeds": "Breakfast"
-            }
-     */
+
+        /*
+            Given
+                    https://restful-booker.herokuapp.com/booking/22
+            When
+                     I send GET Request to the URL
+            Then
+                     Status code is 200
+               {
+                    "firstname": "Oliver",
+                    "lastname": "Smith",
+                    "totalprice": 100,
+                    "depositpaid": true,
+                    "bookingdates": {
+                        "checkin": "2022-07-18",
+                        "checkout": "2022-07-19"
+                    },
+                    "additionalneeds": "Breakfast"
+                }
+         */
 
     @Test
     public void get01(){
@@ -49,7 +50,6 @@ public class Get15ObjectMapper extends HerOkuAppBaseUrl {
                 "                },\n" +
                 "                \"additionalneeds\": \"Breakfast\"\n" +
                 "            }";
-
 
         BookingPojo expectedDataPojo = JsonUtil.convertJsonToJavaObject(expectedData, BookingPojo.class);
 

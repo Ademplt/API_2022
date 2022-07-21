@@ -1,5 +1,6 @@
 package utils;
 
+
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.io.IOException;
@@ -16,10 +17,11 @@ public class JsonUtil {
 
     public static <T> T convertJsonToJavaObject(String json, Class<T> cls){//Generic Method
         T javaResult = null;
-    try {
+
+        try {
             javaResult = mapper.readValue(json,cls);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         return javaResult;
@@ -27,5 +29,19 @@ public class JsonUtil {
 
 
         //2. Method: Java Objesini Json Dataya  çevirir.(Serialization)
+
+    public static String convertJavaObjectToJson(Object obj){
+
+        String jsonResult = null;
+
+        try {
+            jsonResult = mapper.writeValueAsString(obj);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return jsonResult;
+    }
+
 
 }
