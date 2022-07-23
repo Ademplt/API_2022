@@ -4,6 +4,7 @@ import base_urls.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
 import org.junit.Test;
 import pojos.JsonPlaceHolderPojo;
+import test_data.JsonPlaceHolderTestData;
 import utils.JsonUtil;
 
 import java.util.HashMap;
@@ -15,17 +16,17 @@ import static org.junit.Assert.assertEquals;
 public class Get14ObjectMapper extends JsonPlaceHolderBaseUrl {
      /*
         Given
-	        https://jsonplaceholder.typicode.com/todos/198
+           https://jsonplaceholder.typicode.com/todos/198
         When
-	 		I send GET Request to the URL
-	 	Then
-	 		Status code is 200
-	 		And response body is like {
-									    "userId": 10,
-									    "id": 198,
-									    "title": "quis eius est sint explicabo",
-									    "completed": true
-									  }
+         I send GET Request to the URL
+      Then
+         Status code is 200
+         And response body is like {
+                               "userId": 10,
+                               "id": 198,
+                               "title": "quis eius est sint explicabo",
+                               "completed": true
+                             }
      */
 
     @Test
@@ -34,12 +35,9 @@ public class Get14ObjectMapper extends JsonPlaceHolderBaseUrl {
         spec.pathParams("first","todos","second",198);
 
         //2. Step: Set the expected Data
-        String expectedData = "{\n" +
-                "    \"userId\": 10,\n" +
-                "    \"id\": 198,\n" +
-                "    \"title\": \"quis eius est sint explicabo\",\n" +
-                "    \"completed\": true\n" +
-                "  }";
+        JsonPlaceHolderTestData jsonPlaceHolderTestData = new JsonPlaceHolderTestData();
+
+        String expectedData = jsonPlaceHolderTestData.expectedDataInString(10,"quis eius est sint explicabo",true);
 
         HashMap<String, Object> expectedDataMap = JsonUtil.convertJsonToJavaObject(expectedData, HashMap.class);
 
@@ -64,12 +62,9 @@ public class Get14ObjectMapper extends JsonPlaceHolderBaseUrl {
         spec.pathParams("first","todos","second",198);
 
         //2. Step: Set the expected Data
-        String expectedData = "{\n" +
-                "    \"userId\": 10,\n" +
-                "    \"id\": 198,\n" +
-                "    \"title\": \"quis eius est sint explicabo\",\n" +
-                "    \"completed\": true\n" +
-                "  }";
+        JsonPlaceHolderTestData jsonPlaceHolderTestData = new JsonPlaceHolderTestData();
+
+        String expectedData = jsonPlaceHolderTestData.expectedDataInString(10,"quis eius est sint explicabo",true);
 
         JsonPlaceHolderPojo expectedDataPojo = JsonUtil.convertJsonToJavaObject(expectedData, JsonPlaceHolderPojo.class);
 
